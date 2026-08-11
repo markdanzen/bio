@@ -1,0 +1,51 @@
+.switch {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 128px;
+  background: var(--tag-background);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.switch button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.switch button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.switch button[data-active="true"] {
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .switch button:not([data-active="true"]):hover {
+    color: var(--foreground);
+  }
+}
+
+@media (max-width: 600px) {
+  .switch {
+    right: 16px;
+    bottom: 16px;
+  }
+}

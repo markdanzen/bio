@@ -1,0 +1,88 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  gap: 24px;
+  padding: 120px 60px 80px;
+}
+
+.intro h1 {
+  max-width: 480px;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -2.4px;
+  text-wrap: balance;
+  color: var(--foreground);
+}
+
+.intro h2 {
+  max-width: 480px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-wrap: balance;
+  color: var(--text-secondary);
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 32px;
+  text-wrap: balance;
+  color: var(--text-secondary);
+}
+
+.ctas {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.ctas a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 128px;
+  border: 1px solid transparent;
+  transition: 0.2s;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 500;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+a.secondary {
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    opacity: 0.85;
+  }
+
+  a.secondary:hover {
+    background: var(--tag-background);
+  }
+}
+
+@media (max-width: 600px) {
+  .intro {
+    padding: 64px 24px 56px;
+  }
+
+  .intro h1 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -1.92px;
+  }
+}

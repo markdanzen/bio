@@ -1,0 +1,48 @@
+.contact {
+  width: 100%;
+  max-width: 800px;
+  padding: 80px 60px 120px;
+}
+
+.contact h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--foreground);
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.links a {
+  padding: 10px 20px;
+  border-radius: 128px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .links a:hover {
+    background: var(--tag-background);
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact {
+    padding: 56px 24px 80px;
+  }
+}
