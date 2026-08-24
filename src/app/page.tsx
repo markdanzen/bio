@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <div id="top" className={styles.page}>
       <main className={styles.main}>
-        <Intro />
+        {/* <Intro /> */}
         <Projects />
-        <Experience />
-        <Contact />
+        {/* <Experience /> */}
+        {/* <Contact /> */}
       </main>
-      <ThemeSwitch />
+      {/* <ThemeSwitch /> */}
     </div>
   );
 }
