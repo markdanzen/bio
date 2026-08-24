@@ -1,31 +1,5 @@
 import styles from "./Projects.module.scss";
-
-const projects = [
-  {
-    title: "Project One",
-    description:
-      "A short description of what this project does and the problem it solves.",
-    tags: ["Next.js", "TypeScript"],
-    demoHref: "#",
-    codeHref: "#",
-  },
-  {
-    title: "Project Two",
-    description:
-      "A short description of what this project does and the problem it solves.",
-    tags: ["React", "Node.js"],
-    demoHref: "#",
-    codeHref: "#",
-  },
-  {
-    title: "Project Three",
-    description:
-      "A short description of what this project does and the problem it solves.",
-    tags: ["PostgreSQL", "GraphQL"],
-    demoHref: "#",
-    codeHref: "#",
-  },
-];
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
   return (
@@ -36,7 +10,11 @@ export default function Projects() {
       </p> */}
       <div className={styles.grid}>
         {projects.map((project) => (
-          <article key={project.title} className={styles.card}>
+          <a
+            key={project.slug}
+            href={`/projects/${project.slug}`}
+            className={styles.card}
+          >
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <ul className={styles.tags}>
@@ -44,11 +22,8 @@ export default function Projects() {
                 <li key={tag}>{tag}</li>
               ))}
             </ul>
-            <div className={styles.links}>
-              <a href={project.demoHref}>Live Demo</a>
-              <a href={project.codeHref}>Source Code</a>
-            </div>
-          </article>
+            <span className={styles.more}>View details →</span>
+          </a>
         ))}
       </div>
     </section>

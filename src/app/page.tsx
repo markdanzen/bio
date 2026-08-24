@@ -7,14 +7,14 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <div id="top" className={styles.page}>
+    <div id="swup" className={`${styles.page} transition-fade`}>
       <main className={styles.main}>
         {/* <Intro /> */}
         <Projects />
         {/* <Experience /> */}
         {/* <Contact /> */}
       </main>
-      {/* <ThemeSwitch /> */}
+      <ThemeSwitch />
     </div>
   );
 }
