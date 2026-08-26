@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <div id="swup" className={`${styles.page} transition-fade`}>
       <main className={styles.main}>
-        {/* <Intro /> */}
+        <Intro />
         <Projects />
-        {/* <Experience /> */}
-        {/* <Contact /> */}
+        <Experience />
+        <Contact />
       </main>
       <ThemeSwitch />
     </div>
