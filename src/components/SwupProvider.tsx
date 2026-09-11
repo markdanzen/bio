@@ -10,6 +10,7 @@ export default function SwupProvider() {
       containers: ["#swup"],
       animationSelector: '[class*="transition-"]',
       plugins: [new SwupHeadPlugin({ awaitAssets: true })],
+      requestHeaders: { "X-Swup-Request": "1" },
     });
 
     return () => {

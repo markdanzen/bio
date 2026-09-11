@@ -112,3 +112,34 @@ html.is-rendering:not(.is-animating) .transition-curtain {
     transition-delay: 0s !important;
   }
 }
+
+/* --- Homepage-only preload: plays once on a genuine fresh visit to "/" --- */
+
+.home-preload-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.home-preload-layer {
+  position: absolute;
+  inset: 0;
+  background: var(--layer-color);
+  transform: translateY(0%);
+  animation: home-preload-lift 0.7s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+  animation-delay: calc(var(--i) * 90ms + 300ms);
+}
+
+@keyframes home-preload-lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-preload-layer {
+    animation-duration: 0.01s;
+    animation-delay: 0s;
+  }
+}

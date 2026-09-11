@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
+  title: "Demo Animation",
   description: "Portfolio showcasing skills, projects, and contact info.",
 };
 
