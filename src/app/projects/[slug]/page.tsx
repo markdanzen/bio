@@ -20,7 +20,7 @@ export default async function ProjectDetail({
   }
 
   return (
-    <div id="swup" className={`${pageStyles.page} transition-fade`}>
+    <div id="swup" className={pageStyles.page}>
       <main className={pageStyles.main}>
         <section className={styles.detail}>
           <a href="/" className={styles.back}>

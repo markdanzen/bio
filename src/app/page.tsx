@@ -7,12 +7,12 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <div id="swup" className={`${styles.page} transition-fade`}>
+    <div id="swup" className={styles.page}>
       <main className={styles.main}>
-        <Intro />
+        {/* <Intro /> */}
         <Projects />
-        <Experience />
-        <Contact />
+        {/* <Experience /> */}
+        {/* <Contact /> */}
       </main>
       <ThemeSwitch />
     </div>

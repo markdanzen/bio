@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import SwupProvider from "@/components/SwupProvider";
+import CurtainTransition from "@/components/CurtainTransition";
 import "./globals.scss";
 
 const geistSans = Geist({
@@ -42,6 +43,7 @@ export default function RootLayout({
           `}
         </Script>
         <SwupProvider />
+        <CurtainTransition />
         {children}
       </body>
     </html>

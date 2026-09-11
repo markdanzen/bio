@@ -63,24 +63,52 @@ a {
   text-decoration: none;
 }
 
-.transition-fade {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 1;
-  transform: translateY(0);
+.curtain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
 }
 
-html.is-animating.is-leaving .transition-fade {
-  opacity: 0;
-  transform: translateY(-24px);
+.transition-curtain {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-100%);
+  background: var(--layer-color);
 }
 
-html.is-animating.is-rendering .transition-fade {
-  opacity: 0;
-  transform: translateY(24px);
+/* Falling closed: sweeps down from above to fully cover the viewport. */
+html.is-animating.is-leaving .transition-curtain {
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  transition-delay: calc(var(--i) * 90ms);
+  transform: translateY(0%);
+}
+
+/*
+ * Swup measures this phase's transition duration right before it removes
+ * `is-animating` (that removal is what triggers the fall), so the duration
+ * has to be declared here on `is-rendering` alone — not on the narrower
+ * `:not(.is-animating)` rule below — or swup sees 0 and skips the wait.
+ */
+html.is-rendering .transition-curtain {
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  transition-delay: calc(var(--i) * 90ms);
+}
+
+/* Holds in place, fully covering, while the new content is swapped in underneath. */
+html.is-animating.is-rendering .transition-curtain {
+  transform: translateY(0%);
+}
+
+/* Continues falling in the same direction, off the bottom of the viewport, revealing the new page. */
+html.is-rendering:not(.is-animating) .transition-curtain {
+  transform: translateY(100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .transition-fade {
+  html.is-animating.is-leaving .transition-curtain,
+  html.is-rendering:not(.is-animating) .transition-curtain {
     transition-duration: 0.01s;
+    transition-delay: 0s !important;
   }
 }
