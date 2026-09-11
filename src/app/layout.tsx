@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import SwupProvider from "@/components/SwupProvider";
+import CurtainTransition from "@/components/CurtainTransition";
 import "./globals.scss";
 
 const geistSans = Geist({
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
+  title: "Demo Animation",
   description: "Portfolio showcasing skills, projects, and contact info.",
 };
 
@@ -40,6 +42,8 @@ export default function RootLayout({
             } catch (e) {}
           `}
         </Script>
+        <SwupProvider />
+        <CurtainTransition />
         {children}
       </body>
     </html>

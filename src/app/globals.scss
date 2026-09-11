@@ -62,3 +62,84 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.curtain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.transition-curtain {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-100%);
+  background: var(--layer-color);
+}
+
+/* Falling closed: sweeps down from above to fully cover the viewport. */
+html.is-animating.is-leaving .transition-curtain {
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  transition-delay: calc(var(--i) * 90ms);
+  transform: translateY(0%);
+}
+
+/*
+ * Swup measures this phase's transition duration right before it removes
+ * `is-animating` (that removal is what triggers the fall), so the duration
+ * has to be declared here on `is-rendering` alone — not on the narrower
+ * `:not(.is-animating)` rule below — or swup sees 0 and skips the wait.
+ */
+html.is-rendering .transition-curtain {
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  transition-delay: calc(var(--i) * 90ms);
+}
+
+/* Holds in place, fully covering, while the new content is swapped in underneath. */
+html.is-animating.is-rendering .transition-curtain {
+  transform: translateY(0%);
+}
+
+/* Continues falling in the same direction, off the bottom of the viewport, revealing the new page. */
+html.is-rendering:not(.is-animating) .transition-curtain {
+  transform: translateY(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.is-animating.is-leaving .transition-curtain,
+  html.is-rendering:not(.is-animating) .transition-curtain {
+    transition-duration: 0.01s;
+    transition-delay: 0s !important;
+  }
+}
+
+/* --- Homepage-only preload: plays once on a genuine fresh visit to "/" --- */
+
+.home-preload-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.home-preload-layer {
+  position: absolute;
+  inset: 0;
+  background: var(--layer-color);
+  transform: translateY(0%);
+  animation: home-preload-lift 0.7s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+  animation-delay: calc(var(--i) * 90ms + 300ms);
+}
+
+@keyframes home-preload-lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-preload-layer {
+    animation-duration: 0.01s;
+    animation-delay: 0s;
+  }
+}
