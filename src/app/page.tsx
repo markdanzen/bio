@@ -14,10 +14,10 @@ export default async function Home() {
     <div id="swup" className={styles.page}>
       {!isSwupVisit && <HomePreloadCurtain />}
       <main className={styles.main}>
-        <Intro />
+        {/* <Intro /> */}
         <Projects />
-        <Experience />
-        <Contact />
+        {/* <Experience /> */}
+        {/* <Contact /> */}
       </main>
       <ThemeSwitch />
     </div>
