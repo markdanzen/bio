@@ -4,10 +4,10 @@ import { projects } from "@/lib/projects";
 export default function Projects() {
   return (
     <section id="projects" className={styles.projects}>
-      {/* <h2>Projects</h2>
+      <h2>Projects</h2>
       <p className={styles.subtitle}>
-        Swap these placeholder cards for your own projects, links, and tags.
-      </p> */}
+        A collection of projects I have worked on, with personal projects coming soon.
+      </p>
       <div className={styles.grid}>
         {projects.map((project) => (
           <a

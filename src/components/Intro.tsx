@@ -4,6 +4,7 @@ import styles from "./Intro.module.scss";
 export default function Intro() {
   return (
     <section className={styles.intro}>
+      <div className={styles.avatar} aria-hidden="true" />
       <h1>Mark Danzen Dela Cruz</h1>
       <h2>Web Developer — Headless CMS, WordPress & Shopify, AI-Assisted Workflows</h2>
       <p>
