@@ -1,10 +1,13 @@
 import Link from "next/link";
+import Avatar from "./Avatar";
 import styles from "./Intro.module.scss";
 
 export default function Intro() {
   return (
     <section className={styles.intro}>
-      <div className={styles.avatar} aria-hidden="true" />
+      <div className={styles.avatar} aria-hidden="true">
+        <Avatar seed="studio" size={88} fill />
+      </div>
       <h1>Mark Danzen Dela Cruz</h1>
       <h2>Web Developer — Headless CMS, WordPress & Shopify, AI-Assisted Workflows</h2>
       <p>

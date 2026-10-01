@@ -17,18 +17,18 @@
   color: var(--text-secondary);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.list {
+  display: flex;
+  flex-direction: column;
   gap: 24px;
   margin-top: 40px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  padding: 20px;
   border-radius: 12px;
   border: 1px solid var(--border);
   transition: border-color 0.2s, transform 0.2s;
@@ -38,6 +38,25 @@
 .card:hover {
   border-color: var(--text-secondary);
   transform: translateY(-2px);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--tag-background);
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
 }
 
 .card h3 {
@@ -80,8 +99,34 @@
   text-decoration: underline;
 }
 
+.seeMore {
+  display: block;
+  margin: 24px auto 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.seeMore:hover {
+  text-decoration: underline;
+}
+
+.list[data-collapsed] > [data-extra],
+.seeMore[hidden] {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .projects {
     padding: 56px 24px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
   }
 }

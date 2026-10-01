@@ -4,8 +4,8 @@ export type Project = {
   description: string;
   detail: string;
   tags: string[];
-  demoHref: string;
-  codeHref: string;
+  image?: string;
+  url?: string;
 };
 
 export const projects: Project[] = [
@@ -17,8 +17,7 @@ export const projects: Project[] = [
     detail:
       "A longer write-up of Project One: the problem it solves, the approach taken, and the tradeoffs made along the way. Swap this out for real project details.",
     tags: ["Next.js", "TypeScript"],
-    demoHref: "#",
-    codeHref: "#",
+    url: "https://example.com",
   },
   {
     slug: "project-two",
@@ -28,8 +27,7 @@ export const projects: Project[] = [
     detail:
       "A longer write-up of Project Two: the problem it solves, the approach taken, and the tradeoffs made along the way. Swap this out for real project details.",
     tags: ["React", "Node.js"],
-    demoHref: "#",
-    codeHref: "#",
+    url: "https://example.com",
   },
   {
     slug: "project-three",
@@ -39,8 +37,7 @@ export const projects: Project[] = [
     detail:
       "A longer write-up of Project Three: the problem it solves, the approach taken, and the tradeoffs made along the way. Swap this out for real project details.",
     tags: ["PostgreSQL", "GraphQL"],
-    demoHref: "#",
-    codeHref: "#",
+    url: "https://example.com",
   },
 ];
 

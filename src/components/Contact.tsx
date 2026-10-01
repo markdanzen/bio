@@ -1,17 +1,17 @@
 import styles from "./Contact.module.scss";
 
 const links = [
-  { label: "Email", href: "mailto:you@example.com" },
+  { label: "Email", href: "mailto:markdanzen@gmail.com" },
   { label: "GitHub", href: "https://github.com/your-username" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/your-username" },
+  { label: "Resume", href: "https://drive.google.com/file/d/1-oXeJa-XUJXGGu2uK0nGQYNeDZMEO4Ae/view?usp=sharing" },
 ];
 
 export default function Contact() {
   return (
     <section id="contact" className={styles.contact}>
-      <h2>Contact</h2>
+      <h2>Let's Connect</h2>
       <p className={styles.subtitle}>
-        Replace these placeholder links with your real email and profiles.
+        Feel free to reach out for work or collaboration.
       </p>
       <div className={styles.links}>
         {links.map((link) => (

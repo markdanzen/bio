@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Demo Animation",
+  title: "Mark Danzen Dela Cruz | Web Developer",
   description: "Portfolio showcasing skills, projects, and contact info.",
+  referrer: "no-referrer",
 };
 
 export default function RootLayout({

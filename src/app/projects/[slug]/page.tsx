@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import Avatar from "@/components/Avatar";
 import { getProject, projects } from "@/lib/projects";
 import pageStyles from "../../page.module.scss";
 import styles from "./page.module.scss";
@@ -32,11 +34,27 @@ export default async function ProjectDetail({
               <li key={tag}>{tag}</li>
             ))}
           </ul>
-          <p className={styles.description}>{project.detail}</p>
-          <div className={styles.links}>
-            <a href={project.demoHref}>Live Demo</a>
-            <a href={project.codeHref}>Source Code</a>
+          <div className={styles.banner}>
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                priority
+                sizes="(max-width: 800px) 100vw, 680px"
+              />
+            ) : (
+              <Avatar seed={project.slug} size={680} radius={0} fill />
+            )}
           </div>
+          <p className={styles.description}>{project.detail}</p>
+          {project.url && (
+            <div className={styles.links}>
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                {project.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+              </a>
+            </div>
+          )}
         </section>
       </main>
     </div>
