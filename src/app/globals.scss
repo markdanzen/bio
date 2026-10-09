@@ -74,13 +74,12 @@ a {
   position: absolute;
   inset: 0;
   transform: translateY(-100%);
-  background: var(--layer-color);
+  background: #2e2e2e;
 }
 
 /* Falling closed: sweeps down from above to fully cover the viewport. */
 html.is-animating.is-leaving .transition-curtain {
   transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
-  transition-delay: calc(var(--i) * 90ms);
   transform: translateY(0%);
 }
 
@@ -92,7 +91,6 @@ html.is-animating.is-leaving .transition-curtain {
  */
 html.is-rendering .transition-curtain {
   transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
-  transition-delay: calc(var(--i) * 90ms);
 }
 
 /* Holds in place, fully covering, while the new content is swapped in underneath. */

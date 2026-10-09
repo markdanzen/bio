@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Avatar from "./Avatar";
 import styles from "./Projects.module.scss";
-import { projects } from "@/lib/projects";
+import { getProjects } from "@/lib/content";
+
+const projects = getProjects();
 
 const INITIAL_COUNT = 2;
 

@@ -1,18 +1,19 @@
 import Link from "next/link";
 import Avatar from "./Avatar";
 import styles from "./Intro.module.scss";
+import { getIntro } from "@/lib/content";
 
 export default function Intro() {
+  const intro = getIntro();
+
   return (
     <section className={styles.intro}>
       <div className={styles.avatar} aria-hidden="true">
         <Avatar seed="studio" size={88} fill />
       </div>
-      <h1>Mark Danzen Dela Cruz</h1>
-      <h2>Web Developer — Headless CMS, WordPress & Shopify, AI-Assisted Workflows</h2>
-      <p>
-        Web developer with 10+ years building WordPress, Shopify, and headless CMS solutions — Next.js, Payload CMS, and the infrastructure to ship them reliably. Increasingly using AI to move faster, not to cut corners.
-      </p>
+      <h1>{intro.name}</h1>
+      <h2>{intro.headline}</h2>
+      <p>{intro.bio}</p>
       <div className={styles.ctas}>
         <Link className={styles.primary} href="#projects">
           View Projects
